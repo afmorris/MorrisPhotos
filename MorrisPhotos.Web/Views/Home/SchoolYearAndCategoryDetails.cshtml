@@ -1,0 +1,26 @@
+﻿@model MorrisPhotos.Web.ViewModels.Home.SchoolYearAndCategoryDetailsViewModel
+
+@{
+    ViewData["Title"] = $"{Model.SchoolYear.Name} {Model.Category.DisplayName} Photos";
+}
+
+<section class="module-cover parallax" data-background="/images/module-14.jpg" data-overlay="0.5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@ViewData["Title"]</h2>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYear="@Model.SchoolYear.Name">@Model.SchoolYear.Name</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        @Model.Category.DisplayName
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>

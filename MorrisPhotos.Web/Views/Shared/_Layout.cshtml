@@ -49,18 +49,19 @@
                         <li class="menu-item-has-children">
                             <a href="#"><span class="menu-item-span">School Years</span></a>
                             <ul class="sub-menu">
-                                <li><a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYear="2015-16">2015-16</a></li>
-                                <li><a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYear="2016-17">2016-17</a></li>
-                                <li><a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYear="2017-18">2017-18</a></li>
+                                @foreach (var schoolYear in SeedData.SchoolYears)
+                                {
+                                    <li><a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYear="@schoolYear.Name">@schoolYear.Name</a></li>
+                                }
                             </ul>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="#"><span class="menu-item-span">Categories</span></a>
                             <ul class="sub-menu">
-                                <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-sportName="CrossCountry">Cross Country</a></li>
-                                <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-sportName="TrackAndField">Track and Field</a></li>
-                                <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-sportName="School">School</a></li>
-                                <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-sportName="Personal">Personal</a></li>
+                                @foreach (var category in SeedData.Categories)
+                                {
+                                    <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-categoryName="@category.UrlName">@category.DisplayName</a></li>
+                                }
                             </ul>
                         </li>
                         <li>
