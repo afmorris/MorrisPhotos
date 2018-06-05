@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MorrisPhotos.Web.DataModels;
+using ServiceStack;
+using ServiceStack.Data;
+using ServiceStack.OrmLite;
 
 namespace MorrisPhotos.Web
 {
@@ -22,6 +22,7 @@ namespace MorrisPhotos.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton(SetupDatabase(this.Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +39,10 @@ namespace MorrisPhotos.Web
             }
 
             app.UseStaticFiles();
+            app.UseServiceStack(new AppHost
+            {
+                AppSettings = new NetCoreAppSettings(Configuration)
+            });
 
             app.UseMvc(routes =>
             {
@@ -45,6 +50,44 @@ namespace MorrisPhotos.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private IDbConnectionFactory SetupDatabase(IConfiguration configuration)
+        {
+            //var dbFactory = new OrmLiteConnectionFactory(this.Configuration.GetConnectionString("DefaultConnection"), SqlServerDialect.Provider);
+            var dbFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
+            using (var db = dbFactory.Open())
+            {
+                db.DropAndCreateTable<SchoolYear>();
+                db.DropAndCreateTable<Category>();
+                db.DropAndCreateTable<Person>();
+                db.DropAndCreateTable<Photo>();
+                db.DropAndCreateTable<PhotoEvent>();
+
+                db.InsertAll(SeedData.SchoolYears);
+
+                //if (db.CreateTableIfNotExists<SchoolYear>())
+                //{
+                //}
+
+                //if (db.CreateTableIfNotExists<Category>())
+                //{
+                //}
+
+                //if (db.CreateTableIfNotExists<Person>())
+                //{
+                //}
+
+                //if (db.CreateTableIfNotExists<Photo>())
+                //{
+                //}
+
+                //if (db.CreateTableIfNotExists<PhotoEvent>())
+                //{
+                //}
+            }
+
+            return dbFactory;
         }
     }
 }

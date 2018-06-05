@@ -1,31 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MorrisPhotos.Web.Models;
+using MorrisPhotos.Web.DataModels;
+using MorrisPhotos.Web.ViewModels;
+using MorrisPhotos.Web.ViewModels.Home;
+using ServiceStack.Mvc;
+using ServiceStack.OrmLite;
 
 namespace MorrisPhotos.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ServiceStackController
     {
         public IActionResult Index()
         {
-            return View();
+            var vm = new IndexViewModel
+            {
+                SchoolYears = Db.Select<SchoolYear>().OrderBy(x => x.Name).ToList()
+            };
+
+            return View(vm);
         }
 
-        public IActionResult About()
+        [Route("{schoolYear}")]
+        public IActionResult SchoolYearDetails(string schoolYear)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
