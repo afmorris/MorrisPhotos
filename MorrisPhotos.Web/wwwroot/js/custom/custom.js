@@ -418,13 +418,16 @@
         twitter_feed.each(function (index) {
             $(this).attr('id', 'twitter-' + index);
             var twitterID      = $(this).data('twitter');
+            var twitterProfileName = $(this).data('profile-name');
             var twitterMax     = $(this).data('number');
             var twitter_config = {
-                'id':             twitterID,
                 'domId':          'twitter-' + index,
                 'maxTweets':      twitterMax,
                 'enableLinks':    true,
-                'showPermalinks': false
+                'showPermalinks': false,
+                'profile': {
+                    'name': twitterProfileName
+                }
             };
             twitterFetcher.fetch(twitter_config);
         });

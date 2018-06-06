@@ -7,17 +7,13 @@
     <meta name="author" content="Tony Morris" />
     <title>@ViewData["Title"] - MorrisPhotos.com</title>
 
-    <!-- Favicons-->
     <link rel="shortcut icon" href="~/images/favicon.png">
     <link rel="apple-touch-icon" href="~/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="~/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="~/images/apple-touch-icon-114x114.png">
-    <!-- Web Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600%7cPlayfair+Display:400i" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <!-- Plugins-->
     <link href="~/css/plugins.min.css" rel="stylesheet">
-    <!-- Template core CSS-->
     <environment include="Development">
         <link href="~/css/template.css" rel="stylesheet" asp-append-version="true" />
     </environment>
@@ -27,7 +23,6 @@
 </head>
 <body>
 
-    <!-- Preloader-->
     <div class="page-loader">
         <div class="page-loader-inner">
             <div class="spinner">
@@ -36,7 +31,6 @@
             </div>
         </div>
     </div>
-    <!-- Preloader end-->
 
     <header class="header header-transparent">
         <div class="container-fluid">
@@ -76,26 +70,43 @@
         </div>
     </header>
 
-    <!-- Wrapper-->
     <div class="wrapper">
         @RenderBody()
-        <!-- Footer-->
         <footer class="footer">
+            <div class="footer-widgets">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <aside class="widget widget-text">
+                                <div class="widget-title">
+                                    <h6>About Us</h6>
+                                </div>
+                                <div class="textwidget">
+                                    <p>This is Tony's personal photography website project. Feel free to download any of the photos, royalty-free.</p>
+                                    <ul class="social-icons">
+                                        <li><a href="https://twitter.com/tonytalkstech" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://instagram.com/afmorris" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://facebook.com/tonytalkstech" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="footer-bar">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>&copy; 2015-@DateTime.Now.Year MorrisPhotos.com, All Rights Reserved</p>
+                                <p>&copy; 2016-@DateTime.Now.Year MorrisPhotos.com, All Rights Reserved</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
-        <!-- Footer end-->
     </div>
-    <!-- Wrapper end-->
 
     <environment include="Development">
         <script src="~/js/custom/jquery-3.2.1.min.js" asp-append-version="true"></script>
