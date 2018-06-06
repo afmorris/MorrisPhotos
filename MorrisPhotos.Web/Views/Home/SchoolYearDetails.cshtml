@@ -30,11 +30,11 @@
                 <div class="col-md-3">
                     <div class="shop-grid-item">
                         <div class="shop-item-thumb">
-                            <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryDetails" asp-route-schoolYear="@Model.SchoolYear.Name" asp-route-categoryName="@category.UrlName"><img src="@category.ThumbnailImageUrl" alt="@category.DisplayName" class="img-responsive"></a>
-                            <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryDetails" asp-route-schoolYear="@Model.SchoolYear.Name" asp-route-categoryName="@category.UrlName" class="btn btn-new-white">Browse</a></div>
+                            <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryDetails" asp-route-schoolYearName="@Model.SchoolYear.Name" asp-route-categoryName="@category.UrlName"><img src="@category.ThumbnailImageUrl" alt="@category.Name" class="img-responsive"></a>
+                            <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryDetails" asp-route-schoolYearName="@Model.SchoolYear.Name" asp-route-categoryName="@category.UrlName" class="btn btn-new-white">Browse</a></div>
                         </div>
                         <div class="shop-item-captions">
-                            <h6 class="shop-item-title">@category.DisplayName</h6>
+                            <h6 class="shop-item-title">@category.Name</h6>
                         </div>
                     </div>
                 </div>

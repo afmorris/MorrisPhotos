@@ -7,6 +7,6 @@ namespace MorrisPhotos.Web.ViewModels.Home
     {
         public SchoolYear SchoolYear { get; set; }
         public Category Category { get; set; }
-        public List<PhotoEvent> Events { get; set; } = new List<PhotoEvent>();
+        public List<PhotoEvent> PhotoEvents { get; set; } = new List<PhotoEvent>();
     }
 }

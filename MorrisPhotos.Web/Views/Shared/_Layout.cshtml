@@ -49,9 +49,9 @@
                         <li class="menu-item-has-children">
                             <a href="#"><span class="menu-item-span">School Years</span></a>
                             <ul class="sub-menu">
-                                @foreach (var schoolYear in SeedData.SchoolYears)
+                                @foreach (var schoolYearName in SeedData.SchoolYears)
                                 {
-                                    <li><a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYear="@schoolYear.Name">@schoolYear.Name</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYearName="@schoolYearName.Name">@schoolYearName.Name</a></li>
                                 }
                             </ul>
                         </li>
@@ -60,7 +60,7 @@
                             <ul class="sub-menu">
                                 @foreach (var category in SeedData.Categories)
                                 {
-                                    <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-categoryName="@category.UrlName">@category.DisplayName</a></li>
+                                    <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-categoryName="@category.UrlName">@category.Name</a></li>
                                 }
                             </ul>
                         </li>

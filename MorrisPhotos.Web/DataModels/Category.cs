@@ -7,8 +7,6 @@ namespace MorrisPhotos.Web.DataModels
         [Index(true)]
         public string Name { get; set; }
 
-        public string DisplayName { get; set; }
-
         [Index(true)]
         public string UrlName { get; set; }
 

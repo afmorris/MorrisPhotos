@@ -16,40 +16,53 @@ namespace MorrisPhotos.Web.Controllers
             return View();
         }
 
-        [Route("school-year/{schoolYear}")]
-        public IActionResult SchoolYearDetails(string schoolYear)
+        [Route("school-year/{schoolYearName}")]
+        public IActionResult SchoolYearDetails(string schoolYearName)
         {
+            var schoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYearName);
+            var photoEvents = Db.LoadSelect<PhotoEvent>(x => x.SchoolYearId == schoolYear.Id);
+            var categories = photoEvents.Select(x => x.Category).Distinct().ToList();
+
             var vm = new SchoolYearDetailsViewModel
             {
-                SchoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYear),
-                Categories = Db.Select<Category>().OrderBy(x => x.Id).ToList()
+                SchoolYear = schoolYear,
+                Categories = categories
             };
 
             return View(vm);
         }
 
-        [Route("school-year/{schoolYear}/category/{categoryName}")]
-        public IActionResult SchoolYearAndCategoryDetails(string schoolYear, string categoryName)
+        [Route("school-year/{schoolYearName}/category/{categoryName}")]
+        public IActionResult SchoolYearAndCategoryDetails(string schoolYearName, string categoryName)
         {
+            var schoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYearName);
+            var category = Db.Single<Category>(x => x.UrlName == categoryName);
+            var photoEvents = Db.Select<PhotoEvent>(x => x.SchoolYearId == schoolYear.Id && x.CategoryId == category.Id);
+
             var vm = new SchoolYearAndCategoryDetailsViewModel
             {
-                SchoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYear),
-                Category = Db.Single<Category>(x => x.UrlName == categoryName)
+                SchoolYear = schoolYear,
+                Category = category,
+                PhotoEvents = photoEvents
             };
-
-            vm.Events = Db.Select<PhotoEvent>(x => x.SchoolYearId == vm.SchoolYear.Id && x.CategoryId == vm.Category.Id);
 
             return View(vm);
         }
 
-        [Route("school-year/{schoolYear}/category/{categoryName}/event/{eventName}")]
-        public IActionResult SchoolYearAndCategoryAndEventDetails(string schoolYear, string categoryName, string eventName)
+        [Route("school-year/{schoolYearName}/category/{categoryName}/event/{eventName}")]
+        public IActionResult SchoolYearAndCategoryAndEventDetails(string schoolYearName, string categoryName, string eventName)
         {
+            var schoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYearName);
+            var category = Db.Single<Category>(x => x.UrlName == categoryName);
+            var photoEvent = Db.Single<PhotoEvent>(x => x.UrlName == eventName && x.SchoolYearId == schoolYear.Id && x.CategoryId == category.Id);
+            var photos = Db.Select<Photo>(x => x.PhotoEventId == photoEvent.Id);
+
             var vm = new SchoolYearAndCategoryAndEventDetailsViewModel
             {
-                SchoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYear),
-                Category = Db.Single<Category>(x => x.UrlName == categoryName),
-                PhotoEvent = Db.Single<PhotoEvent>(x => x.UrlName == eventName)
+                SchoolYear = schoolYear,
+                Category = category,
+                PhotoEvent = photoEvent,
+                Photos = photos
             };
 
             return View(vm);
@@ -58,9 +71,11 @@ namespace MorrisPhotos.Web.Controllers
         [Route("category/{categoryName}")]
         public IActionResult CategoryDetails(string categoryName)
         {
+            var category = Db.Single<Category>(x => x.UrlName == categoryName);
+
             var vm = new CategoryDetailsViewModel
             {
-                Category = Db.Single<Category>(x => x.UrlName == categoryName)
+                Category = category
             };
 
             return View(vm);

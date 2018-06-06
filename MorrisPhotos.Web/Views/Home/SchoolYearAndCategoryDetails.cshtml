@@ -1,7 +1,7 @@
 ﻿@model MorrisPhotos.Web.ViewModels.Home.SchoolYearAndCategoryDetailsViewModel
 
 @{
-    ViewData["Title"] = $"{Model.SchoolYear.Name} {Model.Category.DisplayName} Photos";
+    ViewData["Title"] = $"{Model.SchoolYear.Name} {Model.Category.Name} Photos";
 }
 
 <section class="module-cover parallax" data-background="/images/module-14.jpg" data-overlay="0.5">
@@ -14,10 +14,10 @@
                         <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYear="@Model.SchoolYear.Name">@Model.SchoolYear.Name</a>
+                        <a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYearName="@Model.SchoolYear.Name">@Model.SchoolYear.Name</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        @Model.Category.DisplayName
+                        @Model.Category.Name
                     </li>
                 </ol>
             </div>
@@ -28,13 +28,13 @@
 <section class="module">
     <div class="container">
         <div class="row">
-            @foreach (var photoEvent in Model.Events)
+            @foreach (var photoEvent in Model.PhotoEvents)
             {
                 <div class="col-md-3">
                     <div class="shop-grid-item">
                         <div class="shop-item-thumb">
-                            <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYear="@Model.SchoolYear.Name" asp-route-categoryName="@Model.Category.UrlName" asp-route-eventName="@photoEvent.UrlName"><img src="@photoEvent.ThumbnailImageUrl" alt="@photoEvent.Name"></a>
-                            <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYear="@Model.SchoolYear.Name" asp-route-categoryName="@Model.Category.UrlName" asp-route-eventName="@photoEvent.UrlName" class="btn btn-new-white">Browse</a></div>
+                            <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYearName="@Model.SchoolYear.Name" asp-route-categoryName="@Model.Category.UrlName" asp-route-eventName="@photoEvent.UrlName"><img src="@photoEvent.ThumbnailImageUrl" alt="@photoEvent.Name"></a>
+                            <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYearName="@Model.SchoolYear.Name" asp-route-categoryName="@Model.Category.UrlName" asp-route-eventName="@photoEvent.UrlName" class="btn btn-new-white">Browse</a></div>
                         </div>
                         <div class="shop-item-captions">
                             <h6 class="shop-item-title">@photoEvent.Name</h6>
