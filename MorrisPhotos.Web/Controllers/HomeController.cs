@@ -37,6 +37,8 @@ namespace MorrisPhotos.Web.Controllers
                 Category = Db.Single<Category>(x => x.UrlName == categoryName)
             };
 
+            vm.Events = Db.Select<PhotoEvent>(x => x.SchoolYearId == vm.SchoolYear.Id && x.CategoryId == vm.Category.Id);
+
             return View(vm);
         }
 

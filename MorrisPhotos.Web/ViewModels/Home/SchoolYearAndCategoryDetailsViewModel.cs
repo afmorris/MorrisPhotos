@@ -1,4 +1,5 @@
-﻿using MorrisPhotos.Web.DataModels;
+﻿using System.Collections.Generic;
+using MorrisPhotos.Web.DataModels;
 
 namespace MorrisPhotos.Web.ViewModels.Home
 {
@@ -6,5 +7,6 @@ namespace MorrisPhotos.Web.ViewModels.Home
     {
         public SchoolYear SchoolYear { get; set; }
         public Category Category { get; set; }
+        public List<PhotoEvent> Events { get; set; } = new List<PhotoEvent>();
     }
 }

@@ -58,14 +58,15 @@ namespace MorrisPhotos.Web
             var dbFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
             using (var db = dbFactory.Open())
             {
-                db.DropAndCreateTable<SchoolYear>();
-                db.DropAndCreateTable<Category>();
-                db.DropAndCreateTable<Person>();
                 db.DropAndCreateTable<Photo>();
                 db.DropAndCreateTable<PhotoEvent>();
+                db.DropAndCreateTable<Category>();
+                db.DropAndCreateTable<SchoolYear>();
+                db.DropAndCreateTable<Person>();
 
                 db.InsertAll(SeedData.SchoolYears);
                 db.InsertAll(SeedData.Categories);
+                db.InsertAll(SeedData.PhotoEvents);
 
                 //if (db.CreateTableIfNotExists<SchoolYear>())
                 //{

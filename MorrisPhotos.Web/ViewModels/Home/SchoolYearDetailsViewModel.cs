@@ -6,6 +6,6 @@ namespace MorrisPhotos.Web.ViewModels.Home
     public class SchoolYearDetailsViewModel
     {
         public SchoolYear SchoolYear { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<Category> Categories { get; set; } = new List<Category>();
     }
 }

@@ -24,3 +24,24 @@
         </div>
     </div>
 </section>
+
+<section class="module">
+    <div class="container">
+        <div class="row">
+            @foreach (var photoEvent in Model.Events)
+            {
+                <div class="col-md-3">
+                    <div class="shop-grid-item">
+                        <div class="shop-item-thumb">
+                            <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYear="@Model.SchoolYear.Name" asp-route-categoryName="@Model.Category.UrlName" asp-route-eventName="@photoEvent.UrlName"><img src="@photoEvent.ThumbnailImageUrl" alt="@photoEvent.Name"></a>
+                            <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYear="@Model.SchoolYear.Name" asp-route-categoryName="@Model.Category.UrlName" asp-route-eventName="@photoEvent.UrlName" class="btn btn-new-white">Browse</a></div>
+                        </div>
+                        <div class="shop-item-captions">
+                            <h6 class="shop-item-title">@photoEvent.Name</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
