@@ -72,10 +72,13 @@ namespace MorrisPhotos.Web.Controllers
         public IActionResult CategoryDetails(string categoryName)
         {
             var category = Db.Single<Category>(x => x.UrlName == categoryName);
+            var photoEvent = Db.LoadSelect<PhotoEvent>(x => x.CategoryId == category.Id);
+            var schoolYears = photoEvent.Select(x => x.SchoolYear).Distinct().ToList();
 
             var vm = new CategoryDetailsViewModel
             {
-                Category = category
+                Category = category,
+                SchoolYears = schoolYears
             };
 
             return View(vm);

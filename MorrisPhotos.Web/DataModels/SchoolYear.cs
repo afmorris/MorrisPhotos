@@ -6,6 +6,7 @@ namespace MorrisPhotos.Web.DataModels
     {
         [Index(true)]
         public string Name { get; set; }
+        public string ThumbnailImageUrl { get; set; }
 
         public override string ToString() => this.Name;
     }

@@ -25,3 +25,31 @@
         </div>
     </div>
 </section>
+
+@if (Model.SchoolYears.Any())
+{
+    <section class="module">
+        <div class="container">
+            <div class="row">
+                @foreach (var schoolYear in Model.SchoolYears)
+                {
+                    <div class="col-md-3">
+                        <div class="shop-grid-item">
+                            <div class="shop-item-thumb">
+                                <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryDetails" asp-route-schoolYearName="@schoolYear.Name" asp-route-categoryName="@Model.Category.UrlName"><img src="@schoolYear.ThumbnailImageUrl" alt="@schoolYear.Name" class="img-responsive"></a>
+                                <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryDetails" asp-route-schoolYearName="@schoolYear.Name" asp-route-categoryName="@Model.Category.UrlName" class="btn btn-new-white">Browse</a></div>
+                            </div>
+                            <div class="shop-item-captions">
+                                <h6 class="shop-item-title">@schoolYear.Name</h6>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
+else
+{
+
+}
