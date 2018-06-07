@@ -82,14 +82,14 @@ namespace MorrisPhotos.Web
 
         public static List<Photo> Photos => new List<Photo>
         {
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/6000x4000", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
         };
     }
 }
