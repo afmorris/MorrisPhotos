@@ -329,40 +329,7 @@
                 ],
             }, $(this).data('carousel-options')));
         });
-
-        /* ---------------------------------------------- /*
-         * Popup
-        /* ---------------------------------------------- */
-
-        play_btn.magnificPopup({
-            type: 'iframe',
-        });
-
-        gallery.magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0,1]
-            },
-            image: {
-                titleSrc: 'title',
-                tError: 'The image could not be loaded.',
-            }
-        });
-
-        shop_gallery.magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0,1]
-            },
-            image: {
-                titleSrc: 'title',
-                tError: 'The image could not be loaded.',
-            }
-        });
+        
 
         /* ---------------------------------------------- /*
          * Progress bars, counters, pie charts animations

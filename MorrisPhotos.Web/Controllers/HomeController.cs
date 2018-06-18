@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using MorrisPhotos.Web.DataModels;
 using MorrisPhotos.Web.ViewModels;
 using MorrisPhotos.Web.ViewModels.Home;
+using ServiceStack;
 using ServiceStack.Mvc;
 using ServiceStack.OrmLite;
 
@@ -16,7 +18,7 @@ namespace MorrisPhotos.Web.Controllers
             return View();
         }
 
-        [Route("school-year/{schoolYearName}")]
+        [Microsoft.AspNetCore.Mvc.Route("school-year/{schoolYearName}")]
         public IActionResult SchoolYearDetails(string schoolYearName)
         {
             var schoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYearName);
@@ -32,7 +34,7 @@ namespace MorrisPhotos.Web.Controllers
             return View(vm);
         }
 
-        [Route("school-year/{schoolYearName}/category/{categoryName}")]
+        [Microsoft.AspNetCore.Mvc.Route("school-year/{schoolYearName}/category/{categoryName}")]
         public IActionResult SchoolYearAndCategoryDetails(string schoolYearName, string categoryName)
         {
             var schoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYearName);
@@ -49,12 +51,35 @@ namespace MorrisPhotos.Web.Controllers
             return View(vm);
         }
 
-        [Route("school-year/{schoolYearName}/category/{categoryName}/event/{eventName}")]
+        [Microsoft.AspNetCore.Mvc.Route("school-year/{schoolYearName}/category/{categoryName}/event/{eventName}")]
         public IActionResult SchoolYearAndCategoryAndEventDetails(string schoolYearName, string categoryName, string eventName)
         {
+            if (schoolYearName.IsNullOrEmpty() || categoryName.IsNullOrEmpty() || eventName.IsNullOrEmpty())
+            {
+                return BadRequest();
+            }
+
             var schoolYear = Db.Single<SchoolYear>(x => x.Name == schoolYearName);
+
+            if (schoolYear == null)
+            {
+                return NotFound(schoolYearName);
+            }
+
             var category = Db.Single<Category>(x => x.UrlName == categoryName);
+
+            if (category == null)
+            {
+                return NotFound(categoryName);
+            }
+
             var photoEvent = Db.Single<PhotoEvent>(x => x.UrlName == eventName && x.SchoolYearId == schoolYear.Id && x.CategoryId == category.Id);
+
+            if (photoEvent == null)
+            {
+                return NotFound(eventName);
+            }
+
             var photos = Db.Select<Photo>(x => x.PhotoEventId == photoEvent.Id);
 
             var vm = new SchoolYearAndCategoryAndEventDetailsViewModel
@@ -68,7 +93,7 @@ namespace MorrisPhotos.Web.Controllers
             return View(vm);
         }
 
-        [Route("category/{categoryName}")]
+        [Microsoft.AspNetCore.Mvc.Route("category/{categoryName}")]
         public IActionResult CategoryDetails(string categoryName)
         {
             var category = Db.Single<Category>(x => x.UrlName == categoryName);
@@ -84,7 +109,7 @@ namespace MorrisPhotos.Web.Controllers
             return View(vm);
         }
 
-        [Route("events")]
+        [Microsoft.AspNetCore.Mvc.Route("events")]
         public IActionResult Events()
         {
             var vm = new EventsViewModel();
@@ -92,7 +117,7 @@ namespace MorrisPhotos.Web.Controllers
             return View(vm);
         }
 
-        [Route("people")]
+        [Microsoft.AspNetCore.Mvc.Route("people")]
         public IActionResult People()
         {
             var vm = new PeopleViewModel();
