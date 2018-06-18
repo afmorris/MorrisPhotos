@@ -19,6 +19,31 @@ namespace MorrisPhotos.Web
             public static int SchoolId = 3;
         }
 
+        public static List<Person> People => new List<Person>
+        {
+            new Person { FirstName = "Clay", LastName = "Gucker" },
+            new Person { FirstName = "Tara", LastName = "Freeland" },
+            new Person { FirstName = "Julie", LastName = "Oliver" },
+            new Person { FirstName = "Dave", LastName = "Freeland" },
+            new Person { FirstName = "Anna", LastName = "Winnicki" },
+            new Person { FirstName = "Jenna", LastName = "Oliver" },
+            new Person { FirstName = "Riley", LastName = "Freeland" },
+            new Person { FirstName = "Vanessa", LastName = "Rivera" },
+            new Person { FirstName = "Andy", LastName = "Froelich" },
+            new Person { FirstName = "Katelyn", LastName = "Young" },
+            new Person { FirstName = "Garth", LastName = "Gucker" },
+            new Person { FirstName = "Erian", LastName = "Hamilton" },
+            new Person { FirstName = "Tommie", LastName = "Kurtz" },
+            new Person { FirstName = "Lauren", LastName = "Frank" },
+            new Person { FirstName = "Carol", LastName = "Prohaska" },
+            new Person { FirstName = "Bailey", LastName = "Freeland" },
+            new Person { FirstName = "Katelyn", LastName = "Malena" },
+            new Person { FirstName = "Fred", LastName = "Devore" },
+            new Person { FirstName = "Kevin", LastName = "Devore" },
+            new Person { FirstName = "Mattie", LastName = "Morris" },
+            new Person { FirstName = "Cindy", LastName = "Morris" },
+        };
+
         public static List<SchoolYear> SchoolYears => new List<SchoolYear>
         {
             new SchoolYear { Name = "2015-16", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=15&size=510" },
@@ -82,14 +107,14 @@ namespace MorrisPhotos.Web
 
         public static List<Photo> Photos => new List<Photo>
         {
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
-            new Photo { ThumbnailImageUrl = "http://via.placeholder.com/600x400", ImageUrl = "http://via.placeholder.com/1920x1080", PhotoEventId = 1 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-1.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-1.jpg", PhotoEventId = 1, Height = 4000, Width = 6000 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-2.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-2.jpg", PhotoEventId = 1, Height = 4000, Width = 6000 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-3.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-3.jpg", PhotoEventId = 1, Height = 4000, Width = 6000 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-4.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-4.jpg", PhotoEventId = 1, Height = 4000, Width = 6000 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-5.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-5.jpg", PhotoEventId = 1, Height = 4000, Width = 6000 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-6.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-6.jpg", PhotoEventId = 1, Height = 6000, Width = 4000 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-7.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-7.jpg", PhotoEventId = 1, Height = 4000, Width = 6000 },
+            new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2015/06/State-8.t.jpg", ImageUrl = "https://cdn.morrisphotos.com/2015/06/State-8.jpg", PhotoEventId = 1, Height = 4000, Width = 6000 },
         };
     }
 }

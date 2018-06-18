@@ -37,13 +37,11 @@
         <div class="row gallery" itemscope itemtype="http://schema.org/ImageGallery">
             @foreach (var photo in Model.Photos)
             {
-                <div class="col-md-3">
-                    <figure itemProp="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                        <a href="@photo.ImageUrl" itemprop="contentUrl" data-size="1920x1080">
-                            <img src="@photo.ThumbnailImageUrl" itemprop="thumbnail" alt="" />
-                        </a>
-                    </figure>
-                </div>
+                <figure class="col-md-3" itemProp="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                    <a href="@photo.ImageUrl" itemprop="contentUrl" data-size="@photo.HeightWidthString">
+                        <img src="@photo.ThumbnailImageUrl" itemprop="thumbnail" alt="@photo.AltText" />
+                    </a>
+                </figure>
             }
         </div>
     </div>
@@ -120,8 +118,16 @@
 }
 
 @section Scripts {
-    <script src="~/js/photoswipe.min.js"></script>
-    <script src="~/js/photoswipe-ui-default.min.js"></script>
+    <environment include="Development">
+        <script src="~/js/photoswipe.min.js" asp-append-version="true"></script>
+        <script src="~/js/photoswipe-ui-default.min.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/photoswipe.min.js" asp-append-version="true"></script>
+        <script src="~/js/photoswipe-ui-default.min.js" asp-append-version="true"></script>
+    </environment>
+
+    
 
     <script>
         var initPhotoSwipeFromDOM = function (gallerySelector) {
@@ -149,15 +155,13 @@
                     linkEl = figureEl.children[0]; // <a> element
 
                     size = linkEl.getAttribute('data-size').split('x');
-
                     // create slide object
                     item = {
                         src: linkEl.getAttribute('href'),
                         w: parseInt(size[0], 10),
-                        h: parseInt(size[1], 10)
+                        h: parseInt(size[1], 10),
+                        pid: i
                     };
-
-
 
                     if (figureEl.children.length > 1) {
                         // <figcaption> content
@@ -183,6 +187,7 @@
 
             // triggers when user clicks on thumbnail
             var onThumbnailsClick = function (e) {
+                
                 e = e || window.event;
                 e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
@@ -216,8 +221,6 @@
                     }
                     nodeIndex++;
                 }
-
-
 
                 if (index >= 0) {
                     // open PhotoSwipe if valid index found
@@ -259,14 +262,15 @@
                     gallery,
                     options,
                     items;
-
+                
                 items = parseThumbnailElements(galleryElement);
 
                 // define options (if needed)
                 options = {
 
                     // define gallery index (for URL)
-                    galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+                    galleryUID: 1,
+                    galleryPIDs: true,
 
                     getThumbBoundsFn: function (index) {
                         // See Options -> getThumbBoundsFn section of documentation for more info
@@ -327,7 +331,8 @@
             }
         };
 
-        // execute above function
-        initPhotoSwipeFromDOM('.gallery');
+        $(document).ready(function() {
+            initPhotoSwipeFromDOM('.gallery');
+        });
     </script>
 }

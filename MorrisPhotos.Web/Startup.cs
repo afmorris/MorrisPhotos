@@ -68,6 +68,7 @@ namespace MorrisPhotos.Web
                 db.InsertAll(SeedData.Categories);
                 db.InsertAll(SeedData.PhotoEvents);
                 db.InsertAll(SeedData.Photos);
+                db.InsertAll(SeedData.People);
 
                 //if (db.CreateTableIfNotExists<SchoolYear>())
                 //{
