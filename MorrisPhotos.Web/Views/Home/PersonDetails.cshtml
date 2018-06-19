@@ -1,7 +1,7 @@
-﻿@model MorrisPhotos.Web.ViewModels.Home.SchoolYearAndCategoryAndEventDetailsViewModel
+﻿@model MorrisPhotos.Web.ViewModels.Home.PersonDetailsViewModel
 
 @{
-    ViewData["Title"] = $"{Model.PhotoEvent.Name} Photos";
+    ViewData["Title"] = $"{Model.Person.FirstName} {Model.Person.LastName} Photos";
 }
 
 <section class="module-page-title bg-dark">
@@ -18,13 +18,10 @@
                         <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYearName="@Model.SchoolYear.Name">@Model.SchoolYear.Name</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryDetails" asp-route-schoolYearName="@Model.SchoolYear.Name" asp-route-categoryName="@Model.Category.UrlName">@Model.Category.Name</a>
+                        <a asp-area="" asp-controller="Home" asp-action="People">People</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        @Model.PhotoEvent.Name
+                        @Model.Person.FirstName @Model.Person.LastName
                     </li>
                 </ol>
             </div>
@@ -48,11 +45,11 @@
                             <ul>
                                 @foreach (var person in photo.People)
                                 {
-                                <li>
-                                    <a asp-area="" asp-controller="Home" asp-action="PersonDetails" asp-route-personId="@person.Id" asp-route-personName="@person.FirstName.ToLower()-@person.LastName.ToLower()" target="_blank">
-                                        @person.FirstName @person.LastName
-                                    </a>
-                                </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Home" asp-action="PersonDetails" asp-route-personId="@person.Id" asp-route-personName="@person.FirstName.ToLower()-@person.LastName.ToLower()" target="_blank">
+                                            @person.FirstName @person.LastName
+                                        </a>
+                                    </li>
                                 }
                             </ul>
                         </figcaption>

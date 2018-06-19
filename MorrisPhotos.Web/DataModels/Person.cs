@@ -7,6 +7,7 @@ namespace MorrisPhotos.Web.DataModels
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string ThumbnailImageUrl { get; set; }
 
         [Reference]
         public List<Photo> Photos { get; set; } = new List<Photo>();
