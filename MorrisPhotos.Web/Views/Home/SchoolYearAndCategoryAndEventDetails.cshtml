@@ -37,10 +37,13 @@
         <div class="row gallery" itemscope itemtype="http://schema.org/ImageGallery">
             @foreach (var photo in Model.Photos)
             {
-                <figure class="col-md-3" itemProp="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                    <a href="@photo.ImageUrl" itemprop="contentUrl" data-size="@photo.HeightWidthString">
+                <figure class="col-md-3 gallery-item" itemProp="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                    <a href="@photo.WebImageUrl" itemprop="contentUrl" data-size="@photo.HeightWidthString" data-download-url="@photo.DownloadImageUrl">
                         <img src="@photo.ThumbnailImageUrl" itemprop="thumbnail" alt="@photo.AltText" />
                     </a>
+                    <figcaption itemprop="caption description">
+                        <a href="https://google.com">Google Link</a>
+                    </figcaption>
                 </figure>
             }
         </div>
@@ -119,17 +122,23 @@
 
 @section Scripts {
     <environment include="Development">
-        <script src="~/js/photoswipe.min.js" asp-append-version="true"></script>
-        <script src="~/js/photoswipe-ui-default.min.js" asp-append-version="true"></script>
+        <script src="~/js/photoswipe.js" asp-append-version="true"></script>
+        <script src="~/js/photoswipe-ui-default.js" asp-append-version="true"></script>
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/js/photoswipe.min.js" asp-append-version="true"></script>
         <script src="~/js/photoswipe-ui-default.min.js" asp-append-version="true"></script>
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     </environment>
 
     
 
     <script>
+        var globalGallery;
+
         var initPhotoSwipeFromDOM = function (gallerySelector) {
 
             // parse slide data (url, title, size ...) from DOM elements
@@ -141,7 +150,8 @@
                     figureEl,
                     linkEl,
                     size,
-                    item;
+                    item,
+                    downloadUrl;
 
                 for (var i = 0; i < numNodes; i++) {
 
@@ -155,14 +165,15 @@
                     linkEl = figureEl.children[0]; // <a> element
 
                     size = linkEl.getAttribute('data-size').split('x');
+                    downloadUrl = linkEl.getAttribute('data-download-url');
                     // create slide object
                     item = {
                         src: linkEl.getAttribute('href'),
                         w: parseInt(size[0], 10),
                         h: parseInt(size[1], 10),
-                        pid: i
+                        downloadUrl: downloadUrl
                     };
-
+                    
                     if (figureEl.children.length > 1) {
                         // <figcaption> content
                         item.title = figureEl.children[1].innerHTML;
@@ -279,6 +290,11 @@
                             rect = thumbnail.getBoundingClientRect();
 
                         return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
+                    },
+
+                    getImageURLForShare: function (shareButtonData) {
+                        var pswp = globalGallery;
+                        return pswp.currItem.downloadUrl || pswp.currItem.src || '';
                     }
 
                 };
@@ -314,6 +330,8 @@
                 // Pass data to PhotoSwipe and initialize it
                 gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
                 gallery.init();
+
+                globalGallery = gallery;
             };
 
             // loop through all gallery elements and bind events
@@ -333,6 +351,12 @@
 
         $(document).ready(function() {
             initPhotoSwipeFromDOM('.gallery');
+
+            var $grid = $('.gallery').imagesLoaded(function() {
+                $grid.isotope({
+                    itemSelector: '.gallery-item'
+                });
+            });
         });
     </script>
 }

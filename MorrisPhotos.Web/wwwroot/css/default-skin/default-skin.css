@@ -335,6 +335,11 @@ a.pswp__share--download:hover {
     color: #CCC;
 }
 
+    .pswp__caption__center a {
+        color: #CCC;
+        text-decoration: underline;
+    }
+
 .pswp__caption--empty {
     display: none;
 }
@@ -584,4 +589,8 @@ a.pswp__share--download:hover {
 
 .pswp--minimal--dark .pswp__top-bar {
     background: none;
+}
+
+.gallery figcaption {
+    display: none;
 }

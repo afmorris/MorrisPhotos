@@ -18,8 +18,8 @@ namespace MorrisPhotos.Web.DataModels.Comparers
                 throw new ArgumentNullException(nameof(y));
             }
 
-            var xRegexResult = RegularExpressions.NaturalSortRegex.Match(x.ImageUrl);
-            var yRegexResult = RegularExpressions.NaturalSortRegex.Match(y.ImageUrl);
+            var xRegexResult = RegularExpressions.NaturalSortRegex.Match(x.DownloadImageUrl);
+            var yRegexResult = RegularExpressions.NaturalSortRegex.Match(y.DownloadImageUrl);
 
             if (xRegexResult.Success && yRegexResult.Success)
             {
@@ -28,7 +28,7 @@ namespace MorrisPhotos.Web.DataModels.Comparers
                 return int.Parse(xResult).CompareTo(int.Parse(yResult));
             }
 
-            return string.Compare(x.ImageUrl, y.ImageUrl, StringComparison.Ordinal);
+            return string.Compare(x.DownloadImageUrl, y.DownloadImageUrl, StringComparison.Ordinal);
         }
     }
 }
