@@ -5,8 +5,9 @@ namespace MorrisPhotos.Web.DataModels
 {
     public class Photo : BaseDataModel
     {
-        public string ImageUrl { get; set; }
+        public string DownloadImageUrl { get; set; }
         public string ThumbnailImageUrl { get; set; }
+        public string WebImageUrl { get; set; }
         public int PhotoEventId { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
