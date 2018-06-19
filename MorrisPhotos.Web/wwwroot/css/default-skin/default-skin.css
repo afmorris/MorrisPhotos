@@ -337,8 +337,26 @@ a.pswp__share--download:hover {
 
     .pswp__caption__center a {
         color: #CCC;
-        text-decoration: underline;
+        border: 1px solid #CCC;
+        background-color: #333;
+        padding: 8px;
     }
+
+        .pswp__caption__center a:hover {
+            background-color: #666;
+        }
+
+.pswp__caption__center ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.pswp__caption__center ul li {
+    display: inline-flex;
+    white-space: nowrap;
+    margin: 5px;
+}
 
 .pswp__caption--empty {
     display: none;

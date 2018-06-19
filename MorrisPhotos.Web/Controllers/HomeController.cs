@@ -82,6 +82,16 @@ namespace MorrisPhotos.Web.Controllers
 
             var photos = Db.Select<Photo>(x => x.PhotoEventId == photoEvent.Id);
 
+            foreach (var photo in photos)
+            {
+                var peoplePhotos = Db.Select<PersonPhoto>(x => x.PhotoId == photo.Id);
+                foreach (var personPhoto in peoplePhotos)
+                {
+                    var person = Db.Single<Person>(x => x.Id == personPhoto.PersonId);
+                    photo.People.Add(person);
+                }
+            }
+
             var vm = new SchoolYearAndCategoryAndEventDetailsViewModel
             {
                 SchoolYear = schoolYear,
