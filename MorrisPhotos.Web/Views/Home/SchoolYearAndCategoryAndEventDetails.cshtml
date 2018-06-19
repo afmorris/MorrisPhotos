@@ -41,9 +41,18 @@
                     <a href="@photo.WebImageUrl" itemprop="contentUrl" data-size="@photo.HeightWidthString" data-download-url="@photo.DownloadImageUrl">
                         <img src="@photo.ThumbnailImageUrl" itemprop="thumbnail" alt="@photo.AltText" />
                     </a>
-                    <figcaption itemprop="caption description">
-                        <a href="https://google.com">Google Link</a>
-                    </figcaption>
+                    @if (photo.People.Any())
+                    {
+                        <figcaption itemprop="caption description">
+                            <p class="lead">People in this Photo:</p>
+                            <ul>
+                                @foreach (var person in photo.People)
+                                {
+                                    <li><a href="https://google.com" target="_blank">@person.FirstName @person.LastName</a></li>
+                                }
+                            </ul>
+                        </figcaption>
+                    }
                 </figure>
             }
         </div>
@@ -134,7 +143,7 @@
         <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     </environment>
 
-    
+
 
     <script>
         var globalGallery;
@@ -173,7 +182,7 @@
                         h: parseInt(size[1], 10),
                         downloadUrl: downloadUrl
                     };
-                    
+
                     if (figureEl.children.length > 1) {
                         // <figcaption> content
                         item.title = figureEl.children[1].innerHTML;
@@ -198,7 +207,7 @@
 
             // triggers when user clicks on thumbnail
             var onThumbnailsClick = function (e) {
-                
+
                 e = e || window.event;
                 e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
@@ -273,7 +282,7 @@
                     gallery,
                     options,
                     items;
-                
+
                 items = parseThumbnailElements(galleryElement);
 
                 // define options (if needed)
@@ -349,10 +358,10 @@
             }
         };
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             initPhotoSwipeFromDOM('.gallery');
 
-            var $grid = $('.gallery').imagesLoaded(function() {
+            var $grid = $('.gallery').imagesLoaded(function () {
                 $grid.isotope({
                     itemSelector: '.gallery-item'
                 });

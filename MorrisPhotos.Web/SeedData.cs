@@ -19,6 +19,51 @@ namespace MorrisPhotos.Web
             public static int SchoolId = 3;
         }
 
+        public static class PersonIds
+        {
+            public static int ClayGuckerId = 1;
+            public static int TaraFreelandId = 2;
+            public static int JulieOliverId = 3;
+            public static int DaveFreelandId = 4;
+            public static int AnnaWinnickiId = 5;
+            public static int JennaOliverId = 6;
+            public static int RileyFreelandId = 7;
+            public static int VanessaRiveraId = 8;
+            public static int AndyFroelichId = 9;
+            public static int KatelynYoungId = 10;
+            public static int GarthGuckerId = 11;
+            public static int ErianHamiltonId = 12;
+            public static int TommieKurtzId = 13;
+            public static int LaurenFrankId = 14;
+            public static int CarolProhaskaId = 15;
+            public static int BaileyFreelandId = 16;
+            public static int KatelynMalenaId = 17;
+            public static int FredDevoreId = 18;
+            public static int KevinDevoreId = 19;
+            public static int MattieMorrisId = 20;
+            public static int CindyMorrisId = 21;
+        }
+
+        public static class PhotoIds
+        {
+            public static int State_1_2015_2016_Id = 1;
+            public static int State_2_2015_2016_Id = 2;
+            public static int State_3_2015_2016_Id = 3;
+            public static int State_4_2015_2016_Id = 4;
+            public static int State_5_2015_2016_Id = 5;
+            public static int State_6_2015_2016_Id = 6;
+            public static int State_7_2015_2016_Id = 7;
+            public static int State_8_2015_2016_Id = 8;
+            public static int State_9_2015_2016_Id = 9;
+            public static int State_10_2015_2016_Id = 10;
+            public static int State_11_2015_2016_Id = 11;
+            public static int State_12_2015_2016_Id = 12;
+            public static int State_13_2015_2016_Id = 13;
+            public static int State_14_2015_2016_Id = 14;
+            public static int State_15_2015_2016_Id = 15;
+            public static int State_16_2015_2016_Id = 16;
+        }
+
         public static List<Person> People => new List<Person>
         {
             new Person { FirstName = "Clay", LastName = "Gucker" },
@@ -123,6 +168,18 @@ namespace MorrisPhotos.Web
             new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2016/06/State-14.t.jpg", DownloadImageUrl = "https://cdn.morrisphotos.com/2016/06/State-14.jpg", WebImageUrl = "https://cdn.morrisphotos.com/2016/06/State-14.web.jpg", PhotoEventId = 1, Height = 1600, Width = 2400 },
             new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2016/06/State-15.t.jpg", DownloadImageUrl = "https://cdn.morrisphotos.com/2016/06/State-15.jpg", WebImageUrl = "https://cdn.morrisphotos.com/2016/06/State-15.web.jpg", PhotoEventId = 1, Height = 1600, Width = 2400 },
             new Photo { ThumbnailImageUrl = "https://cdn.morrisphotos.com/2016/06/State-16.t.jpg", DownloadImageUrl = "https://cdn.morrisphotos.com/2016/06/State-16.jpg", WebImageUrl = "https://cdn.morrisphotos.com/2016/06/State-16.web.jpg", PhotoEventId = 1, Height = 1600, Width = 2400 },
+        };
+
+        public static List<PersonPhoto> PeoplePhotos => new List<PersonPhoto>
+        {
+            new PersonPhoto { PhotoId = PhotoIds.State_1_2015_2016_Id, PersonId = PersonIds.ClayGuckerId },
+            new PersonPhoto { PhotoId = PhotoIds.State_2_2015_2016_Id, PersonId = PersonIds.TaraFreelandId },
+            new PersonPhoto { PhotoId = PhotoIds.State_2_2015_2016_Id, PersonId = PersonIds.JulieOliverId },
+            new PersonPhoto { PhotoId = PhotoIds.State_2_2015_2016_Id, PersonId = PersonIds.DaveFreelandId },
+            new PersonPhoto { PhotoId = PhotoIds.State_2_2015_2016_Id, PersonId = PersonIds.AnnaWinnickiId },
+            new PersonPhoto { PhotoId = PhotoIds.State_2_2015_2016_Id, PersonId = PersonIds.JennaOliverId },
+            new PersonPhoto { PhotoId = PhotoIds.State_2_2015_2016_Id, PersonId = PersonIds.RileyFreelandId },
+            new PersonPhoto { PhotoId = PhotoIds.State_2_2015_2016_Id, PersonId = PersonIds.VanessaRiveraId },
         };
     }
 }
