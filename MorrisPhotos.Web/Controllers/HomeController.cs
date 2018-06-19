@@ -1,8 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using MorrisPhotos.Web.DataModels;
+using MorrisPhotos.Web.DataModels.Comparers;
+using MorrisPhotos.Web.Extensions;
 using MorrisPhotos.Web.ViewModels;
 using MorrisPhotos.Web.ViewModels.Home;
 using ServiceStack;
@@ -130,7 +132,52 @@ namespace MorrisPhotos.Web.Controllers
         [Microsoft.AspNetCore.Mvc.Route("people")]
         public IActionResult People()
         {
-            var vm = new PeopleViewModel();
+            var query = Db.From<PersonPhoto>().Select(x => x.PersonId);
+            var peopleIds = Db.ColumnDistinct<int>(query);
+            var people = new List<Person>();
+
+            foreach (var personId in peopleIds)
+            {
+                people.Add(Db.Single<Person>(x => x.Id == personId));
+            }
+
+            people.Sort(new PersonComparer());
+
+            var vm = new PeopleViewModel
+            {
+                People = people
+            };
+
+            return View(vm);
+        }
+
+        [Microsoft.AspNetCore.Mvc.Route("people/{personId}/{personName}")]
+        public IActionResult PersonDetails(int personId, string personName)
+        {
+            var person = Db.Single<Person>(x => x.Id == personId);
+            var personPhotos = Db.Select<PersonPhoto>(x => x.PersonId == personId);
+            var photos = new List<Photo>();
+
+            foreach (var personPhoto in personPhotos)
+            {
+                photos.Add(Db.Single<Photo>(x => x.Id == personPhoto.PhotoId));
+            }
+
+            foreach (var photo in photos)
+            {
+                var peoplePhotos = Db.Select<PersonPhoto>(x => x.PhotoId == photo.Id);
+                foreach (var personPhoto in peoplePhotos)
+                {
+                    var p = Db.Single<Person>(x => x.Id == personPhoto.PersonId);
+                    photo.People.Add(p);
+                }
+            }
+
+            var vm = new PersonDetailsViewModel
+            {
+                Person = person,
+                Photos = photos
+            };
 
             return View(vm);
         }

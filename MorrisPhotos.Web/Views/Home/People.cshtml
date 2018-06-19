@@ -25,3 +25,27 @@
         </div>
     </div>
 </section>
+
+@if (Model.People.Any())
+{
+    <section class="module">
+        <div class="container">
+            <div class="row">
+                @foreach (var person in Model.People)
+                {
+                    <div class="col-md-3">
+                        <div class="shop-grid-item">
+                            <div class="shop-item-thumb">
+                                <a asp-area="" asp-controller="Home" asp-action="PersonDetails" asp-route-personId="@person.Id" asp-route-personName="@person.FirstName.ToLower()-@person.LastName.ToLower()"><img src="@person.ThumbnailImageUrl" alt="@person.FirstName @person.LastName" class="img-responsive"/></a>
+                                <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="PersonDetails" asp-route-personName="@person.FirstName-@person.LastName" class="btn btn-new-white">Browse</a></div>
+                            </div>
+                            <div class="shop-item-captions">
+                                <h6 class="shop-item-title">@person.FirstName @person.LastName</h6>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
