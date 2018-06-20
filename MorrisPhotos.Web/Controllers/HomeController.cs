@@ -124,7 +124,19 @@ namespace MorrisPhotos.Web.Controllers
         [Microsoft.AspNetCore.Mvc.Route("events")]
         public IActionResult Events()
         {
-            var vm = new EventsViewModel();
+            var output = new Dictionary<SchoolYear, Dictionary<Category, List<PhotoEvent>>>();
+            var photoEvents = Db.LoadSelect<PhotoEvent>();
+            var events = photoEvents.GroupBy(x => x.SchoolYear).ToDictionary(x => x.Key, x => x.ToList());
+            foreach (var group in events)
+            {
+                var categoryGrouping = group.Value.GroupBy(x => x.Category).ToDictionary(x => x.Key, x => x.ToList());
+                output[group.Key] = categoryGrouping;
+            }
+
+            var vm = new EventsViewModel
+            {
+                Events = output
+            };
 
             return View(vm);
         }

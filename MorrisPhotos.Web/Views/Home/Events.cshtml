@@ -25,3 +25,35 @@
         </div>
     </div>
 </section>
+
+@if (Model.Events.Any())
+{
+    <section class="module">
+        <div class="container">
+            @foreach (var schoolYearGroup in Model.Events)
+            {
+                <h2>@schoolYearGroup.Key.Name School Year</h2>
+                foreach (var categoryGrouping in schoolYearGroup.Value)
+                {
+                    <h3>@categoryGrouping.Key.Name Photos</h3>
+                    <div class="row">
+                        @foreach (var photoEvent in categoryGrouping.Value)
+                        {
+                            <div class="col-md-3">
+                                <div class="shop-grid-item">
+                                    <div class="shop-item-thumb">
+                                        <a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYearName="@photoEvent.SchoolYear.Name" asp-route-categoryName="@photoEvent.Category.UrlName" asp-route-eventName="@photoEvent.UrlName"><img src="@photoEvent.ThumbnailImageUrl" alt="@photoEvent.Name"></a>
+                                        <div class="shop-item-hidden"><a asp-area="" asp-controller="Home" asp-action="SchoolYearAndCategoryAndEventDetails" asp-route-schoolYearName="@photoEvent.SchoolYear.Name" asp-route-categoryName="@photoEvent.Category.UrlName" asp-route-eventName="@photoEvent.UrlName" class="btn btn-new-white">Browse</a></div>
+                                    </div>
+                                    <div class="shop-item-captions">
+                                        <h6 class="shop-item-title">@photoEvent.Name</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </section>
+}
