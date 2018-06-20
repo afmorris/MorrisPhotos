@@ -69,6 +69,7 @@ namespace MorrisPhotos.Web
                 db.InsertAll(SeedData.Categories);
                 db.InsertAll(SeedData.PhotoEvents);
                 db.InsertAll(SeedData.TrackAndField2016Photos);
+                db.InsertAll(SeedData.CrossCountry2016Photos);
                 db.InsertAll(SeedData.People);
                 db.InsertAll(SeedData.PeoplePhotos);
 
