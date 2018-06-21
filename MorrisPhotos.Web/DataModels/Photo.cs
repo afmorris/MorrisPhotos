@@ -4,7 +4,7 @@ using ServiceStack.DataAnnotations;
 
 namespace MorrisPhotos.Web.DataModels
 {
-    public class Photo : BaseDataModel
+    public class Photo : BaseDataModel, IEquatable<Photo>
     {
         public string DownloadImageUrl { get; set; }
         public string ThumbnailImageUrl { get; set; }
@@ -34,5 +34,35 @@ namespace MorrisPhotos.Web.DataModels
 
         [Reference]
         public PhotoEvent PhotoEvent { get; set; }
+
+        public bool Equals(Photo other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return string.Equals(DownloadImageUrl, other.DownloadImageUrl) && string.Equals(ThumbnailImageUrl, other.ThumbnailImageUrl) && string.Equals(WebImageUrl, other.WebImageUrl) && PhotoEventId == other.PhotoEventId && Height == other.Height && Width == other.Width && string.Equals(AltText, other.AltText);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Photo) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (DownloadImageUrl != null ? DownloadImageUrl.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (ThumbnailImageUrl != null ? ThumbnailImageUrl.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (WebImageUrl != null ? WebImageUrl.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ PhotoEventId;
+                hashCode = (hashCode * 397) ^ Height;
+                hashCode = (hashCode * 397) ^ Width;
+                hashCode = (hashCode * 397) ^ (AltText != null ? AltText.GetHashCode() : 0);
+                return hashCode;
+            }
+        }
     }
 }

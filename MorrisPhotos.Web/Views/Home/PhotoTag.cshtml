@@ -1,4 +1,5 @@
-﻿@model MorrisPhotos.Web.ViewModels.Home.PhotoTagViewModel
+﻿@using MorrisPhotos.Web.Extensions;
+@model MorrisPhotos.Web.ViewModels.Home.PhotoTagViewModel
 
 @{
     ViewData["Title"] = "Photo Tag";
@@ -34,7 +35,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="PersonId" class="control-label"></label>
-                        <input asp-for="PersonId" class="form-control" />
+                        <input name="PersonId" type="text" class="form-control awesomplete" id="personInput" />
                         <span asp-validation-for="PersonId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -47,50 +48,36 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-4">
-                <h3>People IDs</h3>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>ID</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach (var person in Model.People)
-                    {
-                        <tr>
-                            <td>@person.FirstName @person.LastName</td>
-                            <td>@person.Id</td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-4">
-                <h3>Photo IDs</h3>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>School Year</th>
-                        <th>Event</th>
-                        <th>Number</th>
-                        <th>ID</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach (var photo in Model.Photos)
-                    {
-                        <tr>
-                            <td>@photo.PhotoEvent.SchoolYear.Name</td>
-                            <td>@photo.PhotoEvent.Name</td>
-                            <td>@photo.Number</td>
-                            <td>@photo.Id</td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </section>
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.css">
+    </environment>
+}
+
+@section Scripts {
+    <environment include="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.js"></script>
+    </environment>
+    
+    <script>
+        $(document).ready(function() {
+            var input = document.getElementById("personInput");
+
+            new Awesomplete(input, {
+                list: [
+                    @Html.ToJavascriptArray(Model.People)
+                ]
+            });
+        });
+    </script>
+}
