@@ -1,0 +1,96 @@
+﻿@model MorrisPhotos.Web.ViewModels.Home.PhotoTagViewModel
+
+@{
+    ViewData["Title"] = "Photo Tag";
+}
+
+<section class="module-page-title bg-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="page-title-desc">
+                    <h1 class="page-title-heading text-light">@ViewData["Title"]</h1>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Photo Tag
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="module">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="PhotoTag">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="PersonId" class="control-label"></label>
+                        <input asp-for="PersonId" class="form-control" />
+                        <span asp-validation-for="PersonId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhotoId" class="control-label"></label>
+                        <input asp-for="PhotoId" class="form-control" />
+                        <span asp-validation-for="PhotoId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <h3>People IDs</h3>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var person in Model.People)
+                    {
+                        <tr>
+                            <td>@person.FirstName @person.LastName</td>
+                            <td>@person.Id</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3>Photo IDs</h3>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>School Year</th>
+                        <th>Event</th>
+                        <th>Number</th>
+                        <th>ID</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var photo in Model.Photos)
+                    {
+                        <tr>
+                            <td>@photo.PhotoEvent.SchoolYear.Name</td>
+                            <td>@photo.PhotoEvent.Name</td>
+                            <td>@photo.Number</td>
+                            <td>@photo.Id</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

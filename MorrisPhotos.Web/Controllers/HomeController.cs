@@ -194,6 +194,42 @@ namespace MorrisPhotos.Web.Controllers
             return View(vm);
         }
 
+        [HttpGet]
+        [Microsoft.AspNetCore.Mvc.Route("phototag")]
+        public IActionResult PhotoTag()
+        {
+            var people = Db.Select<Person>();
+            var photos = Db.LoadSelect<Photo>();
+            foreach (var photo in photos)
+            {
+                Db.LoadReferences(photo.PhotoEvent);
+            }
+
+            var vm = new PhotoTagViewModel
+            {
+                People = people,
+                Photos = photos
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Microsoft.AspNetCore.Mvc.Route("phototag")]
+        public IActionResult PhotoTag(PhotoTagViewModel viewModel)
+        {
+            var personPhoto = new PersonPhoto
+            {
+                PersonId = viewModel.PersonId,
+                PhotoId = viewModel.PhotoId
+            };
+
+            Db.Insert(personPhoto);
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
