@@ -4,6 +4,7 @@ using ServiceStack.DataAnnotations;
 
 namespace MorrisPhotos.Web.DataModels
 {
+    [Alias("MP_Photo")]
     public class Photo : BaseDataModel, IEquatable<Photo>
     {
         public string DownloadImageUrl { get; set; }

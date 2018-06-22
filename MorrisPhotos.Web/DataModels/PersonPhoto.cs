@@ -3,6 +3,7 @@ using ServiceStack.DataAnnotations;
 
 namespace MorrisPhotos.Web.DataModels
 {
+    [Alias("MP_PersonPhoto")]
     public class PersonPhoto : BaseDataModel, IEquatable<PersonPhoto>
     {
         [References(typeof(Person))]

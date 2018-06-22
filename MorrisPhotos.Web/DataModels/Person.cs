@@ -4,6 +4,7 @@ using ServiceStack.DataAnnotations;
 
 namespace MorrisPhotos.Web.DataModels
 {
+    [Alias("MP_Person")]
     public class Person : BaseDataModel, IEquatable<Person>
     {
         public string FirstName { get; set; }

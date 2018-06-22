@@ -3,6 +3,7 @@ using ServiceStack.DataAnnotations;
 
 namespace MorrisPhotos.Web.DataModels
 {
+    [Alias("MP_SchoolYear")]
     public class SchoolYear : BaseDataModel, IEquatable<SchoolYear>
     {
         [Index(true)]
