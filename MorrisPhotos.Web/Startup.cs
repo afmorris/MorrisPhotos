@@ -72,13 +72,13 @@ namespace MorrisPhotos.Web
                 db.CreateTable<Category>();
                 db.CreateTable<SchoolYear>();
 
-                db.InsertAll(SeedData.SchoolYears);
-                db.InsertAll(SeedData.Categories);
-                db.InsertAll(SeedData.PhotoEvents);
-                db.InsertAll(SeedData.TrackAndField2016Photos);
-                db.InsertAll(SeedData.CrossCountry2016Photos);
-                db.InsertAll(SeedData.People);
-                db.InsertAll(SeedData.PeoplePhotos);
+                db.InsertAll(SeedData.SchoolYearSeed.SchoolYears);
+                db.InsertAll(SeedData.CategorySeed.Categories);
+                db.InsertAll(SeedData.PhotoEventSeed.PhotoEvents);
+                db.InsertAll(SeedData.Photo2016TrackSeed.TrackAndField2016Photos);
+                db.InsertAll(SeedData.Photo2016XCSeed.CrossCountry2016Photos);
+                db.InsertAll(SeedData.PersonSeed.People);
+                db.InsertAll(SeedData.PersonPhotoSeed.PeoplePhotos);
             }
 
             return dbFactory;

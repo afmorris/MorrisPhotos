@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MorrisPhotos.Web.SeedData
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -45,7 +46,7 @@
                         <li class="menu-item-has-children">
                             <a href="#"><span class="menu-item-span">School Years</span></a>
                             <ul class="sub-menu">
-                                @foreach (var schoolYearName in SeedData.SchoolYears)
+                                @foreach (var schoolYearName in SchoolYearSeed.SchoolYears)
                                 {
                                     <li><a asp-area="" asp-controller="Home" asp-action="SchoolYearDetails" asp-route-schoolYearName="@schoolYearName.Name">@schoolYearName.Name</a></li>
                                 }
@@ -54,7 +55,7 @@
                         <li class="menu-item-has-children">
                             <a href="#"><span class="menu-item-span">Categories</span></a>
                             <ul class="sub-menu">
-                                @foreach (var category in SeedData.Categories)
+                                @foreach (var category in CategorySeed.Categories)
                                 {
                                     <li><a asp-area="" asp-controller="Home" asp-action="CategoryDetails" asp-route-categoryName="@category.UrlName">@category.Name</a></li>
                                 }

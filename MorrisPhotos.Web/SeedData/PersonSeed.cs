@@ -1,0 +1,65 @@
+﻿using System.Collections.Generic;
+using MorrisPhotos.Web.DataModels;
+
+namespace MorrisPhotos.Web.SeedData
+{
+    public static class PersonSeed
+    {
+        public static List<Person> People => new List<Person>
+        {
+            new Person { FirstName = "Clay", LastName = "Gucker", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=CG&size=510" },
+            new Person { FirstName = "Tara", LastName = "Freeland", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=TF&size=510" },
+            new Person { FirstName = "Julie", LastName = "Oliver", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=JO&size=510" },
+            new Person { FirstName = "Dave", LastName = "Freeland", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=DF&size=510" },
+            new Person { FirstName = "Anna", LastName = "Winnicki", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AW&size=510" },
+            new Person { FirstName = "Jenna", LastName = "Oliver", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=JO&size=510" },
+            new Person { FirstName = "Riley", LastName = "Freeland", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=RF&size=510" },
+            new Person { FirstName = "Vanessa", LastName = "Rivera", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=VR&size=510" },
+            new Person { FirstName = "Andy", LastName = "Froelich", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AF&size=510" },
+            new Person { FirstName = "Katelyn", LastName = "Young", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=KY&size=510" },
+            new Person { FirstName = "Garth", LastName = "Gucker", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=GG&size=510" },
+            new Person { FirstName = "Erian", LastName = "Hamilton", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=EH&size=510" },
+            new Person { FirstName = "Tommie", LastName = "Kurtz", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=TK&size=510" },
+            new Person { FirstName = "Lauren", LastName = "Frank", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=LF&size=510" },
+            new Person { FirstName = "Carol", LastName = "Prohaska", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=CP&size=510" },
+            new Person { FirstName = "Bailey", LastName = "Freeland", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=BF&size=510" },
+            new Person { FirstName = "Katelyn", LastName = "Malena", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=KM&size=510" },
+            new Person { FirstName = "Fred", LastName = "Devore", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=FD&size=510" },
+            new Person { FirstName = "Kevin", LastName = "Devore", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=KD&size=510" },
+            new Person { FirstName = "Mattie", LastName = "Morris", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MM&size=510" },
+            new Person { FirstName = "Cindy", LastName = "Morris", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=CM&size=510" },
+            new Person { FirstName = "Amy", LastName = "Winnicki", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AW&size=510" },
+            new Person { FirstName = "Marty", LastName = "Ryan", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MR&size=510" },
+            new Person { FirstName = "Faith", LastName = "Theobald", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=FT&size=510" },
+            new Person { FirstName = "Allison", LastName = "Chudzinski", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AC&size=510" },
+            new Person { FirstName = "Sara", LastName = "Naples", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=SN&size=510" },
+            new Person { FirstName = "Emma", LastName = "Nagel", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=EN&size=510" },
+            new Person { FirstName = "Madeline", LastName = "Bohan", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MB&size=510" },
+            new Person { FirstName = "Caleigh", LastName = "Stefanko", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=CS&size=510" },
+            new Person { FirstName = "Patrick", LastName = "Andrews", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=PA&size=510" },
+            new Person { FirstName = "Tristan", LastName = "Vaughan", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=TV&size=510" },
+            new Person { FirstName = "Dillon", LastName = "West", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=DW&size=510" },
+            new Person { FirstName = "Matt", LastName = "Butt", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MB&size=510" },
+            new Person { FirstName = "Estevan", LastName = "Ortega", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=EO&size=510" },
+            new Person { FirstName = "Reilly", LastName = "Cipullo", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=RC&size=510" },
+            new Person { FirstName = "Alex", LastName = "Jervis", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AJ&size=510" },
+            new Person { FirstName = "Alec", LastName = "Grabowski", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AG&size=510" },
+            new Person { FirstName = "Joey", LastName = "Kurtz", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=JK&size=510" },
+            new Person { FirstName = "Kevin", LastName = "Chudzinski", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=KC&size=510" },
+            new Person { FirstName = "Ben", LastName = "Daniels", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=BD&size=510" },
+            new Person { FirstName = "Frank", LastName = "Stepp", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=FS&size=510" },
+            new Person { FirstName = "Nick", LastName = "Bailey", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=NB&size=510" },
+            new Person { FirstName = "Sam", LastName = "Brandt", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=SB&size=510" },
+            new Person { FirstName = "Nick", LastName = "Ziegler", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=NZ&size=510" },
+            new Person { FirstName = "Charlie", LastName = "Reed", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=CR&size=510" },
+            new Person { FirstName = "Matt", LastName = "Grissom", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MG&size=510" },
+            new Person { FirstName = "Ben", LastName = "Nagy", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=BN&size=510" },
+            new Person { FirstName = "Kyle", LastName = "Chudzinski", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=KC&size=510" },
+            new Person { FirstName = "Colton", LastName = "Carpenter", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=CC&size=510" },
+            new Person { FirstName = "Alex", LastName = "Derhammer", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AD&size=510" },
+            new Person { FirstName = "Max", LastName = "Gucker", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MG&size=510" },
+            new Person { FirstName = "Andy", LastName = "Vasel", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AV&size=510" },
+            new Person { FirstName = "Maddie", LastName = "Gray", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MG&size=510" },
+        };
+    }
+}
