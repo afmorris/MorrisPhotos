@@ -194,6 +194,83 @@ namespace MorrisPhotos.Web.Controllers
             return View(vm);
         }
 
+        [HttpGet]
+        [Microsoft.AspNetCore.Mvc.Route("phototag")]
+        public IActionResult PhotoTag()
+        {
+            var people = Db.Select<Person>();
+            var photos = Db.LoadSelect<Photo>();
+            foreach (var photo in photos)
+            {
+                Db.LoadReferences(photo.PhotoEvent);
+            }
+
+            var vm = new PhotoTagViewModel
+            {
+                People = people,
+                Photos = photos
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Microsoft.AspNetCore.Mvc.Route("phototag")]
+        public IActionResult PhotoTag(PhotoTagViewModel viewModel)
+        {
+            var personPhoto = new PersonPhoto
+            {
+                PersonId = viewModel.PersonId,
+                PhotoId = viewModel.PhotoId
+            };
+
+            Db.Insert(personPhoto);
+
+            return View();
+        }
+
+        [Microsoft.AspNetCore.Mvc.Route("photolist")]
+        public IActionResult PhotoList()
+        {
+            var photos = Db.LoadSelect<Photo>();
+            foreach (var photo in photos)
+            {
+                Db.LoadReferences(photo.PhotoEvent);
+            }
+
+            var data = new Dictionary<SchoolYear, Dictionary<Category, Dictionary<PhotoEvent, List<Photo>>>>();
+
+            var schoolYearGroups = photos.GroupBy(x => x.PhotoEvent.SchoolYear).ToDictionary(x => x.Key, x => x.ToList());
+            foreach (var schoolYearGroup in schoolYearGroups)
+            {
+                var schoolYearData = new Dictionary<Category, Dictionary<PhotoEvent, List<Photo>>>();
+                var categoryGroups = schoolYearGroup.Value.GroupBy(x => x.PhotoEvent.Category).ToDictionary(x => x.Key, x => x.ToList());
+
+                foreach (var categoryGroup in categoryGroups)
+                {
+                    var categoryData = new Dictionary<PhotoEvent, List<Photo>>();
+                    var photoEventGroups = categoryGroup.Value.GroupBy(x => x.PhotoEvent).ToDictionary(x => x.Key, x => x.ToList());
+
+                    foreach (var photoEventGroup in photoEventGroups)
+                    {
+                        categoryData[photoEventGroup.Key] = photoEventGroup.Value;
+                    }
+
+                    schoolYearData[categoryGroup.Key] = categoryData;
+                }
+
+                data[schoolYearGroup.Key] = schoolYearData;
+            }
+
+            var vm = new PhotoListViewModel
+            {
+                Photos = data
+            };
+
+            return View(vm);
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
