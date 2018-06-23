@@ -75,8 +75,20 @@ namespace MorrisPhotos.Web
                 db.InsertAll(SeedData.SchoolYearSeed.SchoolYears);
                 db.InsertAll(SeedData.CategorySeed.Categories);
                 db.InsertAll(SeedData.PhotoEventSeed.PhotoEvents);
-                db.InsertAll(SeedData.Photo2016TrackSeed.TrackAndField2016Photos);
-                db.InsertAll(SeedData.Photo2016XCSeed.CrossCountry2016Photos);
+                db.InsertAll(SeedData.Photo_2016_06_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_08_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_09_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_10_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_11_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_04_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_05_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_08_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_09_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_10_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_03_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_04_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_05_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_06_Seed.Photos);
                 db.InsertAll(SeedData.PersonSeed.People);
                 db.InsertAll(SeedData.PersonPhotoSeed.PeoplePhotos);
             }
