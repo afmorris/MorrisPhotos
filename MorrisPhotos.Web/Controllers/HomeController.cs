@@ -15,6 +15,28 @@ namespace MorrisPhotos.Web.Controllers
 {
     public class HomeController : ServiceStackController
     {
+        private static List<Photo> allPhotos;
+        private static List<Person> allPeople;
+
+        private List<Photo> AllPhotos
+        {
+            get
+            {
+                if (allPhotos == null)
+                {
+                    allPhotos = Db.LoadSelect<Photo>();
+                    foreach (var photo in allPhotos)
+                    {
+                        Db.LoadReferences(photo.PhotoEvent);
+                    }
+                }
+
+                return allPhotos;
+            }
+        }
+        
+        private List<Person> AllPeople => allPeople ?? (allPeople = Db.Select<Person>());
+
         public IActionResult Index()
         {
             return View();
@@ -198,12 +220,8 @@ namespace MorrisPhotos.Web.Controllers
         [Microsoft.AspNetCore.Mvc.Route("phototag")]
         public IActionResult PhotoTag()
         {
-            var people = Db.Select<Person>();
-            var photos = Db.LoadSelect<Photo>();
-            foreach (var photo in photos)
-            {
-                Db.LoadReferences(photo.PhotoEvent);
-            }
+            var people = this.AllPeople;
+            var photos = this.AllPhotos;
 
             var vm = new PhotoTagViewModel
             {
@@ -227,17 +245,18 @@ namespace MorrisPhotos.Web.Controllers
 
             Db.Insert(personPhoto);
 
-            return View();
+            viewModel.People = this.AllPeople;
+            viewModel.Photos = this.AllPhotos;
+            viewModel.PersonId = 0;
+            viewModel.PhotoId = 0;
+
+            return View(viewModel);
         }
 
         [Microsoft.AspNetCore.Mvc.Route("photolist")]
         public IActionResult PhotoList()
         {
-            var photos = Db.LoadSelect<Photo>();
-            foreach (var photo in photos)
-            {
-                Db.LoadReferences(photo.PhotoEvent);
-            }
+            var photos = this.AllPhotos;
 
             var data = new Dictionary<SchoolYear, Dictionary<Category, Dictionary<PhotoEvent, List<Photo>>>>();
 
