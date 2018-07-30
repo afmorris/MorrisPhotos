@@ -58,39 +58,40 @@ namespace MorrisPhotos.Web
             //var dbFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
             using (var db = dbFactory.Open())
             {
-                //db.DropTable<PersonPhoto>();
-                //db.DropTable<Photo>();
-                //db.DropTable<Person>();
-                //db.DropTable<PhotoEvent>();
-                //db.DropTable<Category>();
-                //db.DropTable<SchoolYear>();
+                db.DropTable<PersonPhoto>();
+                db.DropTable<Photo>();
+                db.DropTable<Person>();
+                db.DropTable<PhotoEvent>();
+                db.DropTable<Category>();
+                db.DropTable<SchoolYear>();
 
-                //db.CreateTable<PhotoEvent>();
-                //db.CreateTable<Photo>();
-                //db.CreateTable<Person>();
-                //db.CreateTable<PersonPhoto>();
-                //db.CreateTable<Category>();
-                //db.CreateTable<SchoolYear>();
+                db.CreateTable<PhotoEvent>();
+                db.CreateTable<Photo>();
+                db.CreateTable<Person>();
+                db.CreateTable<PersonPhoto>();
+                db.CreateTable<Category>();
+                db.CreateTable<SchoolYear>();
 
-                //db.InsertAll(SeedData.SchoolYearSeed.SchoolYears);
-                //db.InsertAll(SeedData.CategorySeed.Categories);
-                //db.InsertAll(SeedData.PhotoEventSeed.PhotoEvents);
-                //db.InsertAll(SeedData.Photo_2016_06_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2016_08_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2016_09_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2016_10_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2016_11_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2017_04_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2017_05_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2017_08_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2017_09_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2017_10_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2018_03_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2018_04_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2018_05_Seed.Photos);
-                //db.InsertAll(SeedData.Photo_2018_06_Seed.Photos);
-                //db.InsertAll(SeedData.PersonSeed.People);
-                //db.InsertAll(SeedData.PersonPhotoSeed.PeoplePhotos);
+                db.InsertAll(SeedData.SchoolYearSeed.SchoolYears);
+                db.InsertAll(SeedData.CategorySeed.Categories);
+                db.InsertAll(SeedData.PhotoEventSeed.PhotoEvents);
+                db.InsertAll(SeedData.Photo_2016_06_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_08_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_09_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_10_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2016_11_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_04_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_05_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_08_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_09_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2017_10_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_03_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_04_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_05_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_06_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_07_Seed.Photos);
+                db.InsertAll(SeedData.PersonSeed.People);
+                db.InsertAll(SeedData.PersonPhotoSeed.PeoplePhotos);
             }
 
             return dbFactory;
