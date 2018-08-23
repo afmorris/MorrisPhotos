@@ -54,8 +54,8 @@ namespace MorrisPhotos.Web
 
         private IDbConnectionFactory SetupDatabase(IConfiguration configuration)
         {
-            var dbFactory = new OrmLiteConnectionFactory(configuration.GetConnectionString("DefaultConnection"), SqlServerDialect.Provider);
-            //var dbFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
+            //var dbFactory = new OrmLiteConnectionFactory(configuration.GetConnectionString("DefaultConnection"), SqlServerDialect.Provider);
+            var dbFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
             using (var db = dbFactory.Open())
             {
                 db.DropTable<PersonPhoto>();
