@@ -59,7 +59,13 @@ namespace MorrisPhotos.Web.SeedData
             new Person { FirstName = "Alex", LastName = "Derhammer", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AD&size=510" },
             new Person { FirstName = "Max", LastName = "Gucker", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MG&size=510" },
             new Person { FirstName = "Andy", LastName = "Vasel", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=AV&size=510" },
-            new Person { FirstName = "Maddie", LastName = "Gray", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MG&size=510" },
+            new Person { FirstName = "Maddie", LastName = "Grey", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MG&size=510" },
+            new Person { FirstName = "Caity", LastName = "Brown", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=CB&size=510" },
+            new Person { FirstName = "Ella", LastName = "Loth", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=EL&size=510" },
+            new Person { FirstName = "Brycen", LastName = "Holliday", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=BH&size=510" },
+            new Person { FirstName = "Scott", LastName = "Stoner", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=SS&size=510" },
+            new Person { FirstName = "Macie", LastName = "Morris", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MM&size=510" },
+            new Person { FirstName = "Maria", LastName = "Porras", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MP&size=510" },
         };
     }
 }

@@ -54,6 +54,12 @@
         public static int AlexDerhammerId = 50;
         public static int MaxGuckerId = 51;
         public static int AndyVaselId = 52;
-        public static int MaddieGrayId = 53;
+        public static int MaddieGreyId = 53;
+        public static int CaityBrownId = 54;
+        public static int EllaLothId = 55;
+        public static int BrycenHollidayId = 56;
+        public static int ScottStonerId = 57;
+        public static int MacieMorrisId = 58;
+        public static int MariaPorrasId = 59;
     }
 }
