@@ -4,7 +4,6 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using MorrisPhotos.Web.DataModels;
 using MorrisPhotos.Web.DataModels.Comparers;
-using MorrisPhotos.Web.Extensions;
 using MorrisPhotos.Web.ViewModels;
 using MorrisPhotos.Web.ViewModels.Home;
 using ServiceStack;
