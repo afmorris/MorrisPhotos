@@ -51,6 +51,8 @@ namespace MorrisPhotos.Web.SeedData
             new PhotoEvent { Name = "State", UrlName = "state", SchoolYearId = SchoolYearIds.Id20172018, CategoryId = CategoryIds.TrackAndFieldId, ThumbnailImageUrl = "https://ui-avatars.com/api/?name=S&size=510&length=1"},
             new PhotoEvent { Name = "Bowling Night", UrlName = "bowling-night", SchoolYearId = SchoolYearIds.Id20182019, CategoryId = CategoryIds.CrossCountryId, ThumbnailImageUrl = "https://ui-avatars.com/api/?name=BN&size=510"},
             new PhotoEvent { Name = "Time Trial", UrlName = "time-trial", SchoolYearId = SchoolYearIds.Id20182019, CategoryId = CategoryIds.CrossCountryId, ThumbnailImageUrl = "https://ui-avatars.com/api/?name=TT&size=510"},
+            new PhotoEvent { Name = "Keystone Icebreaker", UrlName = "keystone-icebreaker", SchoolYearId = SchoolYearIds.Id20182019, CategoryId = CategoryIds.CrossCountryId, ThumbnailImageUrl = "https://ui-avatars.com/api/?name=KI&size=510"},
+            new PhotoEvent { Name = "Seneca East Tiger Classic", UrlName = "seneca-east-tiger-classic", SchoolYearId = SchoolYearIds.Id20182019, CategoryId = CategoryIds.CrossCountryId, ThumbnailImageUrl = "https://ui-avatars.com/api/?name=SETC&size=510"},
         };
     }
 }
