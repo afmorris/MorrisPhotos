@@ -61,5 +61,6 @@
         public static int ScottStonerId = 57;
         public static int MacieMorrisId = 58;
         public static int MariaPorrasId = 59;
+        public static int JoshMusolfId = 60;
     }
 }

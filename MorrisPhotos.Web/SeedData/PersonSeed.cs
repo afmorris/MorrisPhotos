@@ -66,6 +66,7 @@ namespace MorrisPhotos.Web.SeedData
             new Person { FirstName = "Scott", LastName = "Stoner", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=SS&size=510" },
             new Person { FirstName = "Macie", LastName = "Morris", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MM&size=510" },
             new Person { FirstName = "Maria", LastName = "Porras", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=MP&size=510" },
+            new Person { FirstName = "Josh", LastName = "Musolf", ThumbnailImageUrl = "https://ui-avatars.com/api/?name=JM&size=510" },
         };
     }
 }
