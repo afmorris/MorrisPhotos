@@ -62,5 +62,25 @@
         public static int MacieMorrisId = 58;
         public static int MariaPorrasId = 59;
         public static int JoshMusolfId = 60;
+        public static int KayleeCoppolinoId = 61;
+        public static int CooperHartselId = 62;
+        public static int NolanFreelandId = 63;
+        public static int KyleBohleyId = 64;
+        public static int TJCorbettId = 65;
+        public static int ZaneEvansId = 66;
+        public static int LukeMalenaId = 67;
+        public static int AndrewHiblerId = 68;
+        public static int MakaelaSalyerId = 69;
+        public static int KatieCanfieldId = 70;
+        public static int SophiaSpencerId = 71;
+        public static int PaigeMunchikId = 72;
+        public static int BrennaHollidayId = 73;
+        public static int LivWellsId = 74;
+        public static int ClaraNevilleId = 75;
+        public static int CassidySmithId = 76;
+        public static int EllieDanielsId = 77;
+        public static int BrettGuckerId = 78;
+        public static int NathanNaplesId = 79;
+        public static int BrookeGuckerId = 80;
     }
 }

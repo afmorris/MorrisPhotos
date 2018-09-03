@@ -274,8 +274,8 @@ namespace MorrisPhotos.Web.SeedData
                 DownloadImageUrl = "https://cdn.morrisphotos.com/2018/08/KeystoneIcebreaker-0030.jpg",
                 WebImageUrl = "https://cdn.morrisphotos.com/2018/08/KeystoneIcebreaker-0030.web.jpg",
                 PhotoEventId = 45,
-                Height = 1600,
-                Width = 2400
+                Height = 2400,
+                Width = 1600
             },
             new Photo
             {

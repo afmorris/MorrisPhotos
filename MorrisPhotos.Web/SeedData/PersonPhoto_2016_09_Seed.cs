@@ -470,6 +470,23 @@ namespace MorrisPhotos.Web.SeedData
             new PersonPhoto { PhotoId = PhotoIds.KenstonFrankGibasInvitational_301_2016_09_Id, PersonId = PersonIds.KevinChudzinskiId },
             new PersonPhoto { PhotoId = PhotoIds.KenstonFrankGibasInvitational_302_2016_09_Id, PersonId = PersonIds.KevinChudzinskiId },
             new PersonPhoto { PhotoId = PhotoIds.KenstonFrankGibasInvitational_303_2016_09_Id, PersonId = PersonIds.KevinChudzinskiId },
+
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_1_2016_09_Id, PersonId = PersonIds.JennaOliverId },
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_1_2016_09_Id, PersonId = PersonIds.SaraNaplesId },
+
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_2_2016_09_Id, PersonId = PersonIds.JennaOliverId },
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_2_2016_09_Id, PersonId = PersonIds.SaraNaplesId },
+
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_3_2016_09_Id, PersonId = PersonIds.RileyFreelandId },
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_3_2016_09_Id, PersonId = PersonIds.TommieKurtzId },
+
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_4_2016_09_Id, PersonId = PersonIds.RileyFreelandId },
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_4_2016_09_Id, PersonId = PersonIds.TommieKurtzId },
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_4_2016_09_Id, PersonId = PersonIds.SaraNaplesId },
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_4_2016_09_Id, PersonId = PersonIds.JennaOliverId },
+
+            new PersonPhoto { PhotoId = PhotoIds.SmithvilleInvitational_5_2016_09_Id, PersonId = PersonIds.BaileyFreelandId },
         };
+
     }
 }
