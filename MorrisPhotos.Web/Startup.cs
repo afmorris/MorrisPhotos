@@ -92,6 +92,7 @@ namespace MorrisPhotos.Web
                 db.InsertAll(SeedData.Photo_2018_07_Seed.Photos);
                 db.InsertAll(SeedData.Photo_2018_08_Seed.Photos);
                 db.InsertAll(SeedData.Photo_2018_09_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_10_Seed.Photos);
 
                 db.InsertAll(SeedData.PersonSeed.People);
                 db.InsertAll(SeedData.PersonPhoto_2016_06_Seed.PeoplePhotos);
@@ -111,6 +112,7 @@ namespace MorrisPhotos.Web
                 db.InsertAll(SeedData.PersonPhoto_2018_07_Seed.PeoplePhotos);
                 db.InsertAll(SeedData.PersonPhoto_2018_08_Seed.PeoplePhotos);
                 db.InsertAll(SeedData.PersonPhoto_2018_09_Seed.PeoplePhotos);
+                db.InsertAll(SeedData.PersonPhoto_2018_10_Seed.PeoplePhotos);
             }
 
             return dbFactory;
