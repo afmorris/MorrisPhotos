@@ -6,5 +6,6 @@
         public static int Id20162017 = 2;
         public static int Id20172018 = 3;
         public static int Id20182019 = 4;
+        public static int Id20192020 = 5;
     }
 }

@@ -54,8 +54,8 @@ namespace MorrisPhotos.Web
 
         private IDbConnectionFactory SetupDatabase(IConfiguration configuration)
         {
-            //var dbFactory = new OrmLiteConnectionFactory(configuration.GetConnectionString("DefaultConnection"), SqlServerDialect.Provider);
-            var dbFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
+            var dbFactory = new OrmLiteConnectionFactory(configuration.GetConnectionString("DefaultConnection"), SqlServerDialect.Provider);
+            //var dbFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
             using (var db = dbFactory.Open())
             {
                 db.DropTable<PersonPhoto>();
@@ -93,6 +93,11 @@ namespace MorrisPhotos.Web
                 db.InsertAll(SeedData.Photo_2018_08_Seed.Photos);
                 db.InsertAll(SeedData.Photo_2018_09_Seed.Photos);
                 db.InsertAll(SeedData.Photo_2018_10_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2018_11_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2019_04_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2019_05_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2019_06_Seed.Photos);
+                db.InsertAll(SeedData.Photo_2019_08_Seed.Photos);
 
                 db.InsertAll(SeedData.PersonSeed.People);
                 db.InsertAll(SeedData.PersonPhoto_2016_06_Seed.PeoplePhotos);
@@ -113,6 +118,11 @@ namespace MorrisPhotos.Web
                 db.InsertAll(SeedData.PersonPhoto_2018_08_Seed.PeoplePhotos);
                 db.InsertAll(SeedData.PersonPhoto_2018_09_Seed.PeoplePhotos);
                 db.InsertAll(SeedData.PersonPhoto_2018_10_Seed.PeoplePhotos);
+                db.InsertAll(SeedData.PersonPhoto_2018_11_Seed.PeoplePhotos);
+                db.InsertAll(SeedData.PersonPhoto_2019_04_Seed.PeoplePhotos);
+                db.InsertAll(SeedData.PersonPhoto_2019_05_Seed.PeoplePhotos);
+                db.InsertAll(SeedData.PersonPhoto_2019_06_Seed.PeoplePhotos);
+                db.InsertAll(SeedData.PersonPhoto_2019_08_Seed.PeoplePhotos);
             }
 
             return dbFactory;
